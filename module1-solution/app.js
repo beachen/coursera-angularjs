@@ -23,12 +23,15 @@ angular.module('LunchCheck', [])
 
         if($scope.lunch === ''){
           $scope.msg = "Please enter data first!";
+          $scope.cssColor = "text-danger";
         }
         else if(items.length <= 3){
               $scope.msg = "Enjoy your lunch!";
+              $scope.cssColor = "text-success";
         }
         else{
             $scope.msg = "Too much!";
+            $scope.cssColor = "text-success";
         }
     };
   }
