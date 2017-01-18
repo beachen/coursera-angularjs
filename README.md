@@ -1,9 +1,11 @@
 # coursera-angularjs
 
-Start browsersync
+### Start browsersync
 1. Dowload npm
 2. npm install -g browser-sync
 3. Run browser-sync
+
+Published at https://beachen.github.io/coursera-angularjs/module1-solution/
 
 ``` bash
 browser-sync start --server --directory --files "**/*"
