@@ -23,6 +23,9 @@ angular.module('ShoppingListCheckOff', [])
         console.log("Remove item:" + index);
         ShoppingListCheckOffService.removeItemFromList(index);
       }
+      toBuy.isEverythingBought = function () {
+          return toBuy.toBuyList.length == 0;
+      }
 
   };
 
@@ -34,6 +37,10 @@ angular.module('ShoppingListCheckOff', [])
   function AlreadyBoughtController($scope, ShoppingListCheckOffService) {
      var bought = this;
      bought.list = ShoppingListCheckOffService.getAlreadyBought();
+
+     bought.isEmpty = function () {
+         return bought.list.length == 0;
+     }
   };
 
   function ShoppingListCheckOffService() {
@@ -42,8 +49,10 @@ angular.module('ShoppingListCheckOff', [])
     var toBuyItems = [
       { name:"Milk", qty: 1},
       { name:"Bananas", qty: 4},
-      { name:"Apples", qty: 1},
-      { name:"Tomatoes", qty: 1}
+      { name:"Apples", qty: 2},
+      { name:"Tomatoes", qty: 10}
+
+
     ];
     var alreadyBought = [];
 
