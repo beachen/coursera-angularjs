@@ -1,38 +1,70 @@
 (function () {
 'use strict';
 
-angular.module('LunchCheck', [])
-.controller('LunchCheckController', LunchCheckController);
+angular.module('ShoppingListCheckOff', [])
+.controller('ToBuyController', ToBuyController)
+.controller('AlreadyBoughtController', AlreadyBoughtController)
+.service('ShoppingListCheckOffService', ShoppingListCheckOffService);
+
   // Inject Scope
-  LunchCheckController.$inject = ['$scope'];
+  ToBuyController.$inject = ['$scope', 'ShoppingListCheckOffService'];
+
 
   /**
-  * This is the controller
+  * ToBuyController
   *
   **/
-  function LunchCheckController($scope) {
-    $scope.msg = "";
-    $scope.lunch = "";
+  function ToBuyController($scope, ShoppingListCheckOffService) {
+      var toBuy = this;
 
-    /*
-    * Validate user input
-    */
-    $scope.validate = function () {
+      toBuy.toBuyList = ShoppingListCheckOffService.getToBuy();
 
-        var items = $scope.lunch.split(",");
+      toBuy.remove = function (index) {
+        console.log("Remove item:" + index);
+        ShoppingListCheckOffService.removeItemFromList(index);
+      }
 
-        if($scope.lunch === ''){
-          $scope.msg = "Please enter data first!";
-          $scope.cssColor = "text-danger";
-        }
-        else if(items.length <= 3){
-              $scope.msg = "Enjoy your lunch!";
-              $scope.cssColor = "text-success";
-        }
-        else{
-            $scope.msg = "Too much!";
-            $scope.cssColor = "text-success";
-        }
-    };
-  }
+  };
+
+   AlreadyBoughtController.$inject = ['$scope', 'ShoppingListCheckOffService'];
+  /**
+  * AlreadyBoughtController
+  *
+  **/
+  function AlreadyBoughtController($scope, ShoppingListCheckOffService) {
+     var bought = this;
+     bought.list = ShoppingListCheckOffService.getAlreadyBought();
+  };
+
+  function ShoppingListCheckOffService() {
+
+    var service = this;
+    var toBuyItems = [
+      { name:"Milk", qty: 1},
+      { name:"Bananas", qty: 4},
+      { name:"Apples", qty: 1},
+      { name:"Tomatoes", qty: 1}
+    ];
+    var alreadyBought = [];
+
+    service.removeItemFromList = function (index) {
+       var removedItem = toBuyItems[index];
+       toBuyItems.splice(index, 1);
+       alreadyBought.push(removedItem);
+    }
+
+
+    /** Get all the items to buy. **/
+    service.getToBuy = function () {
+
+       return toBuyItems;
+    }
+    /** Get all the items already bought **/
+    service.getAlreadyBought = function () {
+
+       return alreadyBought;
+    }
+
+  };
+
 })();
