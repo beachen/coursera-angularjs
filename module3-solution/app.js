@@ -43,7 +43,7 @@ function FoundItemsDirectiveController() {
 
       var ctrl = this;
       var searchStr = "";
-      ctrl.found = [];
+      ctrl.found = null;
 
 
       /** Search for menu items. **/
@@ -63,7 +63,7 @@ function FoundItemsDirectiveController() {
           ctrl.found.splice(index, 1);
       };
       ctrl.nothingFound = function () {
-          return ctrl.found.length === 0;
+          return ctrl.found != null && ctrl.found.length === 0;
       }
   };
 
