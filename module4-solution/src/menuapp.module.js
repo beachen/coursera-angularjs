@@ -7,7 +7,7 @@
 //
 //
 (function () {
-'use strict'
+'use strict';
 
 // The MenuApp has dependencies to the ui.router and data module
 angular.module('MenuApp',['ui.router', 'data']);

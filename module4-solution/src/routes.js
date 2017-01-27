@@ -2,7 +2,7 @@
 // Definition of the application routes
 //
 (function () {
-'use strict'
+'use strict';
 
 angular.module('MenuApp')
 .config(RoutesConfig);
