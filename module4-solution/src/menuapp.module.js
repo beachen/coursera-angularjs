@@ -1,6 +1,16 @@
+//
+// MenuApp module
+//
+// Responsibility:
+//  - Define the UI routes of the application
+//  - Inject modules used in this application
+//
+//
 (function () {
+'use strict'
 
-angular.module('MenuApp',['ui.router']);
+// The MenuApp has dependencies to the ui.router and data module
+angular.module('MenuApp',['ui.router', 'data']);
 
 angular.module('MenuApp')
 .config(RoutesConfig);
