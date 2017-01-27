@@ -7,6 +7,4 @@ angular.module('data')
   console.log("Data module run function.!");
 
 });
-// What should the data module do?
-
 })();

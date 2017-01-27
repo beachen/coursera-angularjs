@@ -12,10 +12,7 @@ function CategoriesComponentController(MenuDataService) {
   console.log("Get all categories");
   MenuDataService.getAllCategories()
   .then(function (res) {
-      console.log("My data:" + res.data.length);
       $ctrl.categories = res.data;
-      console.log("My Categories:" + $ctrl.categories);
-
   });
 }
 
