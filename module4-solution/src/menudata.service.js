@@ -5,7 +5,7 @@
 (function () {
 'use strict'
 
-angular.module('MenuApp')
+angular.module('data')
 .service('MenuDataService', MenuDataService);
 
 // Inject the http package
