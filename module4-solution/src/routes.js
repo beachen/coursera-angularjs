@@ -25,7 +25,7 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
     })
 
     .state('items', {
-      url: '/items',
+      url: '/items/{categoryName}',
       templateUrl: 'src/tabs/itemsTab.html'
     });
 }
