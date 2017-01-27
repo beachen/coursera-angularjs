@@ -12,8 +12,8 @@ angular.module('MenuApp')
   }
 
 });
-ItemsComponentController.$inject = ['MenuDataService'];
-function ItemsComponentController(MenuDataService) {
+ItemsComponentController.$inject = ['MenuDataService', '$stateParams'];
+function ItemsComponentController(MenuDataService, $stateParams) {
   var ctrl = this;
 
   console.log("ItemsComponentController starts here");
@@ -24,4 +24,5 @@ function ItemsComponentController(MenuDataService) {
     ctrl.items = res;
   });
 }
+
 })();
