@@ -9,7 +9,7 @@ function CategoriesComponentController(MenuDataService) {
   $ctrl.categories = [];
 
   // 1. Get all categories
-  console.log("Get all categories");
+  console.log("getAllCategories");
   MenuDataService.getAllCategories()
   .then(function (res) {
       $ctrl.categories = res.data;

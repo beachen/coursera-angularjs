@@ -22,7 +22,7 @@ MenuDataService.$inject = ['$http'];
     /** Call external service and filter by search term. **/
     service.getAllCategories = function () {
       var allCategories = [];
-      console.log("Get all categories");
+      console.log("getAllCategories via http");
       return $http({
         method: "GET",
         url: "https://davids-restaurant.herokuapp.com/categories.json"})
@@ -31,15 +31,14 @@ MenuDataService.$inject = ['$http'];
     /** Get all items for a specific category.  **/
     service.getItemsForCategory = function (categoryShortName) {
       var items = [];
-
+      console.log("getItemsForCategory via http");
       return $http({
         method: "GET",
         url: "https://davids-restaurant.herokuapp.com/menu_items.json?category=" + categoryShortName})
         .then(function (result) {
           // Process
           items = result.data.menu_items;
-          console.log("HOHO:" + result.data.menu_items);
-          console.log("Returning number of foundItems" + items.length);
+          console.log("Received items:" + result.data.menu_items.length);
           return items;
       });
     }
