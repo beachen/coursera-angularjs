@@ -6,11 +6,11 @@ angular.module('data')
 ItemsComponentController.$inject = ['MenuDataService', '$stateParams'];
 function ItemsComponentController(MenuDataService, $stateParams) {
   var ctrl = this;
-  console.log("getItemsForCategory");
+  //console.log("getItemsForCategory");
   MenuDataService.getItemsForCategory($stateParams.categoryName)
   .then(function (res) {
-    
-    console.log(res);
+
+    //console.log(res);
     ctrl.items = res;
   });
 }
