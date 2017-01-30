@@ -5,8 +5,8 @@ angular.module('data')
 
 CategoriesComponentController.$inject = ['items'];
 function CategoriesComponentController(items) {
-  console.log("Categories component controller:" + items.length);
-  var mainList = this;
-  mainList.items = items;
+  
+  var categories = this;
+  categories.items = items;
 }
 })();
