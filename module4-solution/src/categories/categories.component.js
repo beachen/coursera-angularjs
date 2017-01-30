@@ -7,10 +7,10 @@
 angular.module('data')
 .component('categories', {
   templateUrl: 'src/categories/categories.template.html',
-  controller: 'CategoriesComponentController',
+  //controller: 'CategoriesComponentController' ,
   bindings: {
-    categories: '<'
-  }
+     items: '<'
+   }
 
 });
 })();

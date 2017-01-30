@@ -1,9 +1,10 @@
 <div>
     <p>Click on a category to see more details</p>
- <ul ng-repeat="category in $ctrl.categories">
+
+ <ul ng-repeat="item in $ctrl.items">
       <li>
-          <a ui-sref="items({categoryName:category.short_name})" >
-            {{category.name}}
+          <a ui-sref="items({categoryName:item.short_name})" >
+            {{item.name}}
           </a>
 
       </li>

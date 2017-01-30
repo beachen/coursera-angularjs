@@ -21,7 +21,18 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
   })
     .state('categories', {
       url: '/categories',
-      templateUrl: 'src/tabs/categoriesTab.html'
+      templateUrl: 'src/tabs/categoriesTab.html',
+      controller: 'CategoriesComponentController as mainList',
+      // Inject categories before view is displayed
+      resolve: {
+        items: ['MenuDataService', function (MenuDataService) {
+          console.log("Lets get some data from service!");
+          return MenuDataService.getAllCategories().then(function (res) {
+              console.log("inject total items:" + res.data.length);
+              return res.data;
+          });
+        }]
+      }
     })
 
     .state('items', {
