@@ -7,21 +7,26 @@
       var $ctrl = this;
       $ctrl.user = {};
       $ctrl.msg = null;
-      console.log("Singup controller");
+      
+
         $ctrl.signUp = function () {
 
-            console.log("Hello:" + $ctrl.user.firstName);
-            if($ctrl.user.favorite != null){
+            if($ctrl.user.favorite){
                 // Well, let's check if it is available
-                $ctrl.msg = 'Your data has been saved ' + $ctrl.user.firstName;
+                $ctrl.saved = true;
+                $ctrl.isItemAvailable = true;
             }
             else{
-              $ctrl.msg = 'No valid favorite menu number. Data is NOT saved';
+              $ctrl.isItemAvailable = false;
+              $ctrl.saved = false;
             }
         };
-        $ctrl.showMsg = function () {
+        $ctrl.displayNoValidItem = function () {
+            return $ctrl.isItemAvailable != true;
+        };
 
-          return $ctrl.msg != null;
+        $ctrl.isSaved = function () {
+          return $ctrl.saved;
         };
     }
 })();

@@ -70,6 +70,9 @@
   <!-- Favorite -->
   <div class="form-group">
     <label>Favorite</label>
+    <span ng-if="signUpCtrl.displayNoValidItem()">
+      No valid item number
+    </span>
     <input type="text"
            class="form-control"
            ng-model="signUpCtrl.user.favorite"
@@ -82,9 +85,9 @@
           ng-click='signUpCtrl.signUp()'>
           Submit
   </button>
-  <span ng-if="signUpCtrl.showMsg()">
-    {{signUpCtrl.msg}}
-  </span>
-</form>
 
+</form>
+<span ng-if="signUpCtrl.isSaved()">
+  Your data is saved!
+</span>
 </div>
