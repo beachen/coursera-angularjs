@@ -72,6 +72,7 @@
     <label>Favorite</label>
     <input type="text"
            class="form-control"
+           ng-model="signUpCtrl.user.favorite"
            placeholder="Favorite menu number">
   </div>
 
@@ -81,6 +82,9 @@
           ng-click='signUpCtrl.signUp()'>
           Submit
   </button>
+  <span ng-if="signUpCtrl.showMsg()">
+    {{signUpCtrl.msg}}
+  </span>
 </form>
 
 </div>
