@@ -5,10 +5,16 @@
 
     function SignupController() {
       var $ctrl = this;
+      $ctrl.user = {};
 
-        $ctrl.signup = function (user) {
+      console.log("Singup controller");
+        $ctrl.signUp = function () {
 
-            console.log("Hello:" + user);
+            console.log("Hello:" + $ctrl.user.firstName);
+            if($ctrl.user.favorite != null){
+                // Well, let's check if it is available
+
+            }
         }
     }
 })();
