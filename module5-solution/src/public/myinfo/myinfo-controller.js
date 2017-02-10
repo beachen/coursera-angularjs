@@ -7,14 +7,34 @@
 
     function MyInfoController(RestaurantService) {
       var $ctrl = this;
+
       console.log("MyInfoController");
 
-      console.log(RestaurantService.getData());
-
+      $ctrl.data = RestaurantService.getData();
+      $ctrl.data = {
+        firstName:'Anders',
+        lastName:'Strand',
+        email:'anders.t.strand@gmail.com',
+        phone:'555-555-5555',
+        favorite:'A',
+        title:'Title',
+        description : 'Description'
+      }
+      // Inject data
       $ctrl.getData = function () {
-          var data =  RestaurantService.getData();
+          $ctrl.data =  RestaurantService.getData();
           console.log(data);
           return data;
       };
+      $ctrl.isSignedUp = function () {
+        if($ctrl.data){
+          return true;
+        }
+        else{
+            return false;
+        }
+      };
+
     }
+
 })();

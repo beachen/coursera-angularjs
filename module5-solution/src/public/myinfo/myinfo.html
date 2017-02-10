@@ -1,7 +1,34 @@
 <div class="container">
   <h3>MyInfo</h3>
 
-  Hello, dear customer
-  {{myInfoCtrl.getData()}}
+  <div ng-show="!myInfoCtrl.isSignedUp()">
+    <h5>Not Signed Up Yet?</h5>
+     <a ui-sref="public.signup">
+        Sign Up Now
+     </a>
+ </div>
+ <div ng-show="myInfoCtrl.isSignedUp()">
+   <p>
+    Name: {{myInfoCtrl.data.firstName}} {{myInfoCtrl.data.lastName}}<br />
+    Phone: {{myInfoCtrl.data.phone}}<br />
+    Email: {{myInfoCtrl.data.email}}<br />
+
+  </p>
+  <p>
+    Here is a picture of your favorite meny item.
+  </p>
+    <div class="category-tile">
+
+      {{myInfoCtrl.data.title}}
+      <img width="200"
+           height="200"
+           ng-src="images/menu/A/A.jpg"
+           alt="HOHO">
+      <span>{{myInfoCtrl.data.description}}</span>
+    </div>
+
+
+ </div>
+
 
 </div>
