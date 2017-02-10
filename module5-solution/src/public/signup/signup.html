@@ -69,7 +69,7 @@
 
   <!-- Favorite -->
   <div class="form-group">
-    <label>Favorite</label>
+    <label>Favorite (A1, A2..)</label>
     <span ng-if="signUpCtrl.displayNoValidItem()">
       No valid item number
     </span>
@@ -89,6 +89,5 @@
 </form>
 <span ng-if="signUpCtrl.isSaved()">
   Your information has been saved!
-  {{signUpCtrl.getData()}}
 </span>
 </div>

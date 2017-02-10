@@ -15,16 +15,18 @@
 
   </p>
   <p>
-    Here is a picture of your favorite meny item.
+    My favorite dish
   </p>
-    <div class="category-tile">
-
-      {{myInfoCtrl.data.title}}
+    <div>
+      <p>
+        <b>{{myInfoCtrl.data.title}}</b>
+      </p>
       <img width="200"
            height="200"
-           ng-src="images/menu/A/A.jpg"
-           alt="HOHO">
-      <span>{{myInfoCtrl.data.description}}</span>
+           ng-src="images/menu/{{myInfoCtrl.data.category}}/{{myInfoCtrl.data.category}}.jpg">
+      <p>
+        <i>{{myInfoCtrl.data.description}}</i>
+      </p>
     </div>
 
 

@@ -12,20 +12,25 @@
 
 
         $ctrl.signUp = function () {
+            var fav = $ctrl.user.favorite;
+            if(fav){
 
-            if($ctrl.user.favorite){
-                // Well, let's check if it is available
-                $ctrl.saved = true;
-                $ctrl.isItemAvailable = true;
-                RestaurantService.saveData($ctrl.user);
-            }
-            else{
-              $ctrl.isItemAvailable = false;
-              $ctrl.saved = false;
+                RestaurantService.getShortName(fav)
+                .then(function (res) {
+                    // Success
+                    $ctrl.saved = true;
+                    $ctrl.isItemAvailable = true;
+                    RestaurantService.saveData($ctrl.user, res.data);
+                }, function () {
+                   // Error
+                   $ctrl.isItemAvailable = false;
+                   $ctrl.saved = false;
+                })
+
             }
         };
         $ctrl.displayNoValidItem = function () {
-            return $ctrl.isItemAvailable != true;
+            return $ctrl.isItemAvailable == false;
         };
 
         $ctrl.isSaved = function () {
